@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #fade{
+            opacity: 0.8;
+        }
+        body{
+            background-color: rgb(163, 64, 81);
+            cursor: pointer;
+        }
+        table{
+            background-color: rgb(196, 157, 107);
+        }
+        td{
+            height: 1px;
+            width: 1px;
+        }
+    </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    
+    $('td').click(function(){
+      alert("      Yay lets meet on: "+$(this).text()+"/04/2024");
+    });
+  });
+  </script>
+    </head>
+ 
+<body>
+    <!-- Here we are using attributes like
+        cellspacing and cellpadding -->
+ 
+    <!-- The purpose of the cellpadding is 
+        the space that a user want between
+        the border of cell and its contents-->
+ 
+    <!-- cellspacing is used to specify the 
+        space between the cell and its contents -->
+    <h2 align="center" style="color: orange;">
+        April 2024
+    </h2>
+    <br />
+     
+    <table bgcolor="lightgrey" align="center"
+        cellspacing="21" cellpadding="21">
+         
+        <!-- The tr tag is used to enter 
+            rows in the table -->
+ 
+        <!-- It is used to give the heading to the
+            table. We can give the heading to the 
+            top and bottom of the table -->
+ 
+        <caption align="top">
+            <!-- Here we have used the attribute 
+                that is style and we have colored 
+                the sentence to make it better 
+                depending on the web page-->
+        </caption>
+ 
+        <!-- Here th stands for the heading of the
+            table that comes in the first row-->
+ 
+        <!-- The text in this table header tag will 
+            appear as bold and is center aligned-->
+ 
+        <thead>
+            <tr>
+                <!-- Here we have applied inline style 
+                     to make it more attractive-->
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>sat</th>
+            </tr>
+        </thead>
+         
+        <tbody>
+            <tr>
+                <td id="date"></td>
+                <td id="date">1</td>
+                <td id="date">2</td>
+                <td id="date">3</td>
+                <td id="date">4</td>
+                <td id="date">5</td>
+                <td id="date">6</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td id="date">7</td>
+                <td id="date">8</td>
+                <td id="date">9</td>
+                <td id="date">10</td>
+                <td id="date">11</td>
+                <td id="date">12</td>
+                <td id="date">13</td>
+            </tr>
+            <tr>
+                <td id="date">14</td>
+                <td id="date">15</td>
+                <td id="date">16</td>
+                <td id="date">17</td>
+                <td id="date">18</td>
+                <td id="date">19</td>
+                <td id="date">20</td>
+            </tr>
+            <tr>
+                <td id="date">21</td>
+                <td id="date">22</td>
+                <td id="date">23</td>
+                <td id="date">24</td>
+                <td id="date">25</td>
+                <td id="date">26</td>
+                <td id="date">27</td>
+            </tr>
+            <tr>
+                <td id="date">28</td>
+                <td id="date">29</td>
+                <td id="date">30</td>
+                <td id="fade date">1</td>
+                <td id="fade date">2</td>
+                <td id="fade date">3</td>
+                <td id="fade date">4</td>
+            </tr>
+            <tr>
+                <td id="fade date">5</td>
+                <td id="fade date">6</td>
+                <td id="fade date">7</td>
+                <td id="fade date">8</td>
+                <td id="fade date">9</td>
+                <td id="fade date">10</td>
+                <td id="fade date">11</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+ 
+</html>
