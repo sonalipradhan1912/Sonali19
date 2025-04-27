@@ -21,11 +21,11 @@
             overflow: hidden;
             background-color: rgb(163, 64, 81);
             font-family: 'Nunito', sans-serif;
+            position: relative; /* Important for button absolute positioning */
         }
 
         .container {
             text-align: center;
-            position: relative;
             animation: popIn 1s ease forwards;
         }
 
@@ -47,10 +47,10 @@
 
         .buttons {
             margin-top: 30px;
+            position: relative;
             display: flex;
             justify-content: center;
             gap: 20px;
-            position: relative;
         }
 
         .btn {
@@ -73,10 +73,14 @@
 
         #yesButton {
             z-index: 1;
+            position: relative; /* Stay nicely in flow */
         }
 
         #noButton {
             position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             transition: all 0.3s ease;
             z-index: 2;
         }
@@ -110,21 +114,21 @@
         </div>
         <div class="buttons">
             <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
         </div>
     </div>
 
     <script>
         function nextPage() {
-            window.location.href = "yes.html";
+            window.location.href = "yes.html"; // redirect to another page
         }
 
         function moveButton() {
             const button = document.getElementById('noButton');
-            const container = document.querySelector('.container');
+            const container = document.body;
 
-            let maxX = window.innerWidth - button.offsetWidth - 20;
-            let maxY = window.innerHeight - button.offsetHeight - 20;
+            let maxX = window.innerWidth - button.offsetWidth;
+            let maxY = window.innerHeight - button.offsetHeight;
 
             let newX = Math.random() * maxX;
             let newY = Math.random() * maxY;
