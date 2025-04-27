@@ -1,143 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Do You Wanna Go Out With Me?</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <title>Do You Wanna Go Out With Me?</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            background-color: rgb(163, 64, 81);
-            font-family: 'Nunito', sans-serif;
-            position: relative; /* Important for button absolute positioning */
-        }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      background-color: rgb(163, 64, 81);
+      font-family: 'Nunito', sans-serif;
+      position: relative;
+    }
 
-        .container {
-            text-align: center;
-            animation: popIn 1s ease forwards;
-        }
+    .container {
+      text-align: center;
+      animation: popIn 1s ease forwards;
+    }
 
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #ff6ec4, #7873f5, #4ade80, #facc15);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 6s ease infinite;
-        }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5, #4ade80, #facc15);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease infinite;
+    }
 
-        .gif_container img {
-            width: 300px;
-            height: auto;
-            animation: float 3s ease-in-out infinite;
-        }
+    .gif_container img {
+      width: 300px;
+      height: auto;
+      animation: float 3s ease-in-out infinite;
+    }
 
-        .buttons {
-            margin-top: 30px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      position: relative;
+    }
 
-        .btn {
-            background: linear-gradient(45deg, #6a11cb, #2575fc);
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-        }
+    .btn {
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
 
-        .btn:hover {
-            transform: scale(1.1);
-            background: linear-gradient(45deg, #2575fc, #6a11cb);
-        }
+    .btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #2575fc, #6a11cb);
+    }
 
-        #yesButton {
-            z-index: 1;
-            position: relative; /* Stay nicely in flow */
-        }
+    #yesButton {
+      position: relative;
+      z-index: 1;
+    }
 
-        #noButton {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
+    #noButton {
+      position: absolute;
+      z-index: 2;
+      left: 60%;
+      top: 0;
+      transform: translateX(-50%);
+    }
 
-        /* Animations */
-        @keyframes float {
-            0% { transform: translatey(0px); }
-            50% { transform: translatey(-20px); }
-            100% { transform: translatey(0px); }
-        }
+    /* Animations */
+    @keyframes float {
+      0% { transform: translatey(0px); }
+      50% { transform: translatey(-20px); }
+      100% { transform: translatey(0px); }
+    }
 
-        @keyframes popIn {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-    </style>
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Do You Wanna Go Out With Meeeee?</h1>
-        <div class="gif_container">
-            <img src="https://i.postimg.cc/pdNqPxx1/milk-and-mocha-cute.gif" alt="Cute animated illustration" />
-        </div>
-        <div class="buttons">
-            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-            <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
-        </div>
+  <div class="container">
+    <h1>Do You Wanna Go Out With Meeeee?</h1>
+    <div class="gif_container">
+      <img src="https://i.postimg.cc/pdNqPxx1/milk-and-mocha-cute.gif" alt="Cute animated illustration" />
     </div>
+    <div class="buttons">
+      <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+      <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
+    </div>
+  </div>
 
-    <script>
-        function nextPage() {
-            window.location.href = "yes.html"; // redirect to another page
-        }
+  <script>
+    function nextPage() {
+      window.location.href = "yes.html"; // redirect to another page
+    }
 
-        function moveButton() {
-            const button = document.getElementById('noButton');
-            const container = document.body;
+    function moveButton() {
+      const button = document.getElementById('noButton');
 
-            let maxX = window.innerWidth - button.offsetWidth;
-            let maxY = window.innerHeight - button.offsetHeight;
+      // container is the whole window (viewport)
+      const padding = 10; // padding to stay inside edges
+      const buttonWidth = button.offsetWidth;
+      const buttonHeight = button.offsetHeight;
+      const maxX = window.innerWidth - buttonWidth - padding;
+      const maxY = window.innerHeight - buttonHeight - padding;
 
-            let newX = Math.random() * maxX;
-            let newY = Math.random() * maxY;
+      let newX = Math.random() * maxX;
+      let newY = Math.random() * maxY;
 
-            button.style.left = `${newX}px`;
-            button.style.top = `${newY}px`;
-        }
-    </script>
+      button.style.left = `${newX}px`;
+      button.style.top = `${newY}px`;
+    }
+  </script>
 
 </body>
-
 </html>
+
