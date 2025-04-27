@@ -132,8 +132,9 @@
       const maxX = window.innerWidth - buttonWidth - padding;
       const maxY = window.innerHeight - buttonHeight - padding;
 
-      let newX = Math.random() * maxX;
-      let newY = Math.random() * maxY;
+      let newX = Math.random() * maxX-1000;
+      let newY = Math.random() * maxY-1000
+        ;
 
       button.style.left = `${newX}px`;
       button.style.top = `${newY}px`;
