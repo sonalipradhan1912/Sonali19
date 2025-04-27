@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>May 2025 Calendar</title>
+    <title>Meeting Countdown - May 2025</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         body {
@@ -49,8 +49,7 @@
         .fade {
             opacity: 0.5;
         }
-
-        #message {
+        #message, #countdown {
             text-align: center;
             margin-top: 20px;
             font-size: 26px;
@@ -59,40 +58,40 @@
             opacity: 0;
             animation: fadeIn 1s ease-in-out forwards;
         }
-
-        /* Glowing animation for the message */
+        /* Glow effect */
         .glow {
             animation: glowEffect 1.5s infinite alternate;
         }
-
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         @keyframes zoomIn {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
-
         @keyframes glowEffect {
-            0% {
-                text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
-                color: #fff;
-            }
-            100% {
-                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
-                color: #00ffff;
-            }
+            0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff; color: #fff; }
+            100% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; color: #00ffff; }
         }
     </style>
 
     <script>
     $(document).ready(function() {
+        let countdownInterval;
+
         $('td').click(function() {
             const day = $(this).text();
-            if (day) {
-                $(this).addClass('clicked');
+            if (day && !$(this).hasClass('fade')) {
+                // Reset previous selection
+                $('td').css({
+                    'background-color': 'rgba(255,255,255,0.2)',
+                    'transform': 'scale(1)',
+                    'box-shadow': 'none'
+                });
+
+                // Apply selection
                 $(this).css('background-color', 'lightgreen');
                 $(this).animate({ fontSize: "30px" }, 200)
                        .animate({ fontSize: "18px" }, 200);
@@ -100,11 +99,36 @@
                 // Update and animate the message
                 $('#message')
                     .hide()
-                    .text("🎯 You selected: " + day + "/05/2025")
-                    .removeClass('glow') // remove glow if already applied
+                    .text("💖 You selected: " + day + " May 2025! Can't wait!")
+                    .removeClass('glow')
                     .fadeIn(500, function() {
-                        $(this).addClass('glow'); // add glow after fadeIn
+                        $(this).addClass('glow');
                     });
+
+                // Clear old countdown
+                clearInterval(countdownInterval);
+
+                // Set the meeting date (assume meeting at 12:00 PM noon for example)
+                const selectedDate = new Date(`May ${day}, 2025 12:00:00`);
+
+                // Start countdown
+                countdownInterval = setInterval(function() {
+                    const now = new Date();
+                    const distance = selectedDate - now;
+
+                    if (distance <= 0) {
+                        clearInterval(countdownInterval);
+                        $('#countdown').html("🎉 It's time to meet!");
+                        return;
+                    }
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    $('#countdown').html(`⏳ Only <span style="color: #00ff00;">${days}</span> days, <span style="color: #00ff00;">${hours}</span> hours, <span style="color: #00ff00;">${minutes}</span> minutes, and <span style="color: #00ff00;">${seconds}</span> seconds left to meet!`).fadeIn();
+                }, 1000);
             }
         });
     });
@@ -147,7 +171,8 @@
         </tbody>
     </table>
 
-    <!-- Message will appear here -->
     <div id="message"></div>
+    <div id="countdown"></div>
+
 </body>
 </html>
